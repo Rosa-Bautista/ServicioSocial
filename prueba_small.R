@@ -1,41 +1,15 @@
 ####Prueba para ver si corre bien y qué es lo que obtengo
 
 # es con el mgnify de menos muestras para que no sea tan pesado
-update()
 
 # If you dont have installed this package
-install.packages("Bioconductor")
-library(BiocManager)
-install.packages("mia")
 
 if (!require("BiocManager", quietly = TRUE))
   install.packages("BiocManager")
-BiocManager::install("MGNifyR")
-library(MGNifyR)
+BiocManager::install("MGnifyR")
+library(MGnifyR)
 library(phyloseq)
 library(mia)
-
-
-if (!require("BiocManager", quietly = TRUE))
-  install.packages("BiocManager")
-BiocManager::install("MGNifyR")
-
-if (!requireNamespace("BiocManager", quietly = TRUE))
-  install.packages("BiocManager")
-
-BiocManager::install("MGnifyR")
-
-
-if (!require("BiocManager", quietly = TRUE))
-  install.packages("BiocManager")
-BiocManager::install(version = "3.20")
-if (!requireNamespace("BiocManager", quietly = TRUE))
-  install.packages("BiocManager")
-
-# The following initializes usage of Bioc devel
-BiocManager::install(version='devel')
-
-BiocManager::install("MGnifyR")
 
 
 
