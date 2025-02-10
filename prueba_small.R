@@ -12,7 +12,6 @@ library(phyloseq)
 library(mia)
 
 
-
 # Set up the MGnify client instance
 mgclnt <- MgnifyClient(usecache = TRUE, cache_dir = "/tmp/MGnify_cache")
 
@@ -35,7 +34,7 @@ if (mae_3 > 1){
     mae_phyloseq_3_[i] <- makePhyloseqFromTreeSummarizedExperiment(mae_3[[i]])
     save(mae_phyloseq_3_[i],file="03_Results/Phyloseq_objects/mae_phyloseq_3_[i].rds")
     library(microbiome)
-    View(abundances(mae_phyloseq_3,transform = "identity")) ## checar si es que influye y c+omo influye que tenga varios
+    View(abundances(mae_phyloseq_3,transform = "identity")) 
     abundances_3<-abundances(mae_phyloseq_3,transform = "identity")
     View(abundances_3)
     meta_data_1<-as.data.frame(sample_data(mae_phyloseq_1))
@@ -51,7 +50,7 @@ if (mae_3 > 1){
   mae_phyloseq_3 <- makePhyloseqFromTreeSummarizedExperiment(mae_3)
   save(mae_phyloseq_3,file="03_Results/Phyloseq_objects/mae_phyloseq_3.rds")
   library(microbiome)
-  View(abundances(mae_phyloseq_3,transform = "identity")) ## checar si es que influye y c+omo influye que tenga varios
+  View(abundances(mae_phyloseq_3,transform = "identity")) 
   abundances_3<-abundances(mae_phyloseq_3,transform = "identity")
   View(abundances_3)
   meta_data_3<-as.data.frame(sample_data(mae_phyloseq_3))
