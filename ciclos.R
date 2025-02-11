@@ -68,6 +68,9 @@ if (mae_3 > 1){ #aqui tengo que mejorar lo de los objetos que crea,  o hago uno 
 
   # con varios en desorden     ### crear antes los objetos que tienen la [i] pero vacios
 for(i in 1:solonames1){
+  accession_list_ <- c()
+  meta_dataframe_ <- c()
+  mae_ <- c()
   accession_list_[i]<- searchAnalysis(mgclnt, "studies",as.character([i]), usecache = TRUE) ##aqui error,checarlo
   meta_dataframe_[i] <- getMetadata(mgclnt, accession_list_[i], usecache = TRUE)
   mae_[i] <- getResult(mgclnt, meta_dataframe_[i]$analysis_accession, usecache = TRUE)
