@@ -43,15 +43,14 @@ if (mae_3 > 1){
     View(abundances(mae_phyloseq_3,transform = "identity")) 
     abundances_3<-abundances(mae_phyloseq_3,transform = "identity")
     View(abundances_3)
-    meta_data_1<-as.data.frame(sample_data(mae_phyloseq_1))
-    write.csv(meta_dataframe_1,file="03_Results/meta_data_1.csv")
+    meta_data_3_[i]<-as.data.frame(sample_data(mae_phyloseq_[i]))
+    write.csv(meta_dataframe_3_[i],file="03_Results/meta_data_[i]<.csv")
     taxtable_3_[i]<-as.data.frame(tax_table(mae_phyloseq_3_[i]))
     write.csv(taxtable_3_[i],file="03_Results/taxtable_3_[i].csv")
     otutable_3_[i]<-as.data.frame(otu_table(mae_phyloseq_3_[i]))
     write.csv(otutable_3_[i],file="03_Results/otutable_3_[i].csv")
     mae3_phyloseq_[i] <-makePhyloseqFromTreeSummarizedExperiment(mae_)
-    View(sample_data(mae_phyloseq))
-  }
+    View(sample_data(mae_phyloseq_3_[i]))
 } else {
   mae_phyloseq_3 <- makePhyloseqFromTreeSummarizedExperiment(mae_3)
   save(mae_phyloseq_3,file="03_Results/Phyloseq_objects/mae_phyloseq_3.rds")
