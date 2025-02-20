@@ -18,6 +18,23 @@ library(phyloseq)
 library(mia)
 
 
+
+#FORMA SEGUN LA PAGINA DE BIOCONDUCTOR: no funciono
+if (!require("BiocManager", quietly = TRUE))
+  install.packages("BiocManager")
+BiocManager::install("MGnifyR")
+
+#FORMA SEGUN EL GITHUIB DE MGNIFYR:
+    #no funciono
+if (!requireNamespace("BiocManager", quietly = TRUE))
+  install.packages("BiocManager")
+
+BiocManager::install("MGnifyR")
+
+  #no funciono
+remotes::install_github("EBI-Metagenomics/MGnifyR")
+
+
 # Set up the MGnify client instance
 mgclnt <- MgnifyClient(usecache = TRUE, cache_dir = "/tmp/MGnify_cache")
 
