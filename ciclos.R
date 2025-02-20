@@ -14,10 +14,12 @@ for(i in 1: length(solonames1)){
 }
 
 
+##para que se guarden como character y se pueda tomar directo en la lista
+
 
 ###ciclo para agilizar el mgnify 
 
-  #de forma individual 
+  #de forma individual /// esta es la pruebasmall
 # aqui ponemos el mgnify que queremos para que lo busque
 accession_list_3 <- searchAnalysis(mgclnt, "studies","MGYS00002309", usecache = TRUE)
 
@@ -40,14 +42,14 @@ if (mae_3 > 1){ #aqui tengo que mejorar lo de los objetos que crea,  o hago uno 
     View(abundances(mae_phyloseq_3,transform = "identity")) ## checar si es que influye y c+omo influye que tenga varios
     abundances_3<-abundances(mae_phyloseq_3,transform = "identity")
     View(abundances_3)
-    meta_data_1<-as.data.frame(sample_data(mae_phyloseq_1))
-    write.csv(meta_dataframe_1,file="03_Results/meta_data_1.csv")
+    meta_data_3_[i]<-as.data.frame(sample_data(mae_phyloseq_[i]))
+    write.csv(meta_dataframe_3_[i],file="03_Results/meta_data_[i]<.csv")
     taxtable_3_[i]<-as.data.frame(tax_table(mae_phyloseq_3_[i]))
     write.csv(taxtable_3_[i],file="03_Results/taxtable_3_[i].csv")
     otutable_3_[i]<-as.data.frame(otu_table(mae_phyloseq_3_[i]))
     write.csv(otutable_3_[i],file="03_Results/otutable_3_[i].csv")
     mae3_phyloseq_[i] <-makePhyloseqFromTreeSummarizedExperiment(mae_)
-    View(sample_data(mae_phyloseq))
+    View(sample_data(mae_phyloseq_3_[i]))
   }
 } else {
   mae_phyloseq_3 <- makePhyloseqFromTreeSummarizedExperiment(mae_3)
@@ -71,7 +73,9 @@ for(i in 1:solonames1){
   accession_list_ <- c()
   meta_dataframe_ <- c()
   mae_ <- c()
-  accession_list_[i]<- searchAnalysis(mgclnt, "studies",as.character([i]), usecache = TRUE) ##aqui error,checarlo
+  mae_phyloseq_ <- c()
+  abundances_ <- c()
+  accession_list_[i]<- searchAnalysis(mgclnt, "studies",as.character([i]), usecache = TRUE) ##aqui checarlo
   meta_dataframe_[i] <- getMetadata(mgclnt, accession_list_[i], usecache = TRUE)
   mae_[i] <- getResult(mgclnt, meta_dataframe_[i]$analysis_accession, usecache = TRUE)
   mae_[i]
@@ -80,21 +84,21 @@ for(i in 1:solonames1){
     tax_table_[i]_ <- c()
     otu_table_[i]_ <- c()
     mae[i]_phyloseq_ <- c()
-    for(i in 1: length(mae_3)){
-      mae_phyloseq_3_[i] <- makePhyloseqFromTreeSummarizedExperiment(mae_3[[i]])
-      save(mae_phyloseq_3_[i],file="03_Results/Phyloseq_objects/mae_phyloseq_3_[i].rds")
+    for(i in 1: length(mae_[i])){
+      mae_phyloseq_[i]_[i] <- makePhyloseqFromTreeSummarizedExperiment(mae_[i][[i]])
+      save(mae_phyloseq_[i]_[i],file="03_Results/Phyloseq_objects/mae_phyloseq_[i]_[i].rds")
       library(microbiome)
-      View(abundances(mae_phyloseq_3,transform = "identity")) ## checar si es que influye y c+omo influye que tenga varios
-      abundances_3<-abundances(mae_phyloseq_3,transform = "identity")
-      View(abundances_3)
-      meta_data_1<-as.data.frame(sample_data(mae_phyloseq_1))
-      write.csv(meta_dataframe_1,file="03_Results/meta_data_1.csv")
+      View(abundances(mae_phyloseq_[i],transform = "identity")) ## checar si es que influye y c+omo influye que tenga varios
+      abundances_[i]<-abundances(mae_phyloseq_[i],transform = "identity")
+      View(abundances_[i])
+      meta_data_3_[i]<-as.data.frame(sample_data(mae_phyloseq_[i]))
+      write.csv(meta_dataframe_3_[i],file="03_Results/meta_data_[i]<.csv")
       taxtable_3_[i]<-as.data.frame(tax_table(mae_phyloseq_3_[i]))
       write.csv(taxtable_3_[i],file="03_Results/taxtable_3_[i].csv")
       otutable_3_[i]<-as.data.frame(otu_table(mae_phyloseq_3_[i]))
       write.csv(otutable_3_[i],file="03_Results/otutable_3_[i].csv")
       mae3_phyloseq_[i] <-makePhyloseqFromTreeSummarizedExperiment(mae_)
-      View(sample_data(mae_phyloseq))
+      View(sample_data(mae_phyloseq_3_[i]))
     }
   } else {
     mae_phyloseq_3 <- makePhyloseqFromTreeSummarizedExperiment(mae_3)
@@ -114,7 +118,7 @@ for(i in 1:solonames1){
   }
 }
 
-  # con varios ordenandolos+
+  # con varios ordenandolos
 for(i in 1: length(solonames1)){
   id_mgn[i]<-solonames[solonames1[i],1]
   num_muestra[i]<-solonames[solonames1[i],2]  
