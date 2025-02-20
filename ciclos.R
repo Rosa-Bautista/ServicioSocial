@@ -15,6 +15,8 @@ for(i in 1: length(solonames1)){
 
 
 ##para que se guarden como character y se pueda tomar directo en la lista
+accession_list_[i]<- searchAnalysis(mgclnt, "studies",as.character([i]), usecache = TRUE) ##aqui checarlo que si funcione el as.character
+
 
 
 ###ciclo para agilizar el mgnify 
@@ -75,7 +77,7 @@ for(i in 1:solonames1){
   mae_ <- c()
   mae_phyloseq_ <- c()
   abundances_ <- c()
-  accession_list_[i]<- searchAnalysis(mgclnt, "studies",as.character([i]), usecache = TRUE) ##aqui checarlo
+  accession_list_[i]<- searchAnalysis(mgclnt, "studies",as.character([i]), usecache = TRUE) ##aqui checarlo que si funcione el as.character
   meta_dataframe_[i] <- getMetadata(mgclnt, accession_list_[i], usecache = TRUE)
   mae_[i] <- getResult(mgclnt, meta_dataframe_[i]$analysis_accession, usecache = TRUE)
   mae_[i]
