@@ -4,6 +4,12 @@
 
 # If you dont have installed this package
 
+  #para tener la version de bioconductor que necesitan
+if (!require("BiocManager", quietly = TRUE))
+  install.packages("BiocManager")
+BiocManager::install(version = "3.20")
+
+  #para los paquetes
 if (!require("BiocManager", quietly = TRUE))
   install.packages("BiocManager")
 BiocManager::install("MGnifyR")
