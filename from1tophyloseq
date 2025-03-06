@@ -10,6 +10,7 @@ library(dplyr)
 library(tidyr)
 
 # Load the data
+    #el que tengo aqui es el de 15
 file_path <- "/home/servicio_social/Documents/SERVICIO_REBB/REBB_SS/documentos necesarios para phyloseq/ERP106171_taxonomy_abundances_LSU_v4.1_MGYS00002309.tsv"  # Adjust path if needed
 data <- read.delim(file_path, header = TRUE, sep = "\t", stringsAsFactors = FALSE)
 
