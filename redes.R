@@ -1,0 +1,14 @@
+## Analisis de redes de los archivos phyloseq
+
+##Aracne
+
+
+##sparcc
+
+##Spiec-EAST
+
+
+
+
+#COMPARAR PROPIEDADES TOPOLOGICAS POR EDADES Y VER EL EFFECTO DE LA CONSOLIDACION
+#ENCONTRAR EARLYWARNINGS.
