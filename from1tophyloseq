@@ -42,17 +42,7 @@ physeq <- phyloseq(otu_table, tax_table)
 physeq
 
 
-##ANALISIS
 
-#redes tipo aracne
-
-#redes tipo sparcc
-
-#redes tipo Spiec-EAST
-
-
-#COMPARAR PROPIEDADES TOPOLOGICAS POR EDADES Y VER EL EFFECTO DE LA CONSOLIDACION
-#ENCONTRAR EARLYWARNINGS.
 
 # Print summary
 physeq
