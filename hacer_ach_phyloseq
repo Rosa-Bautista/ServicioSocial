@@ -1,6 +1,6 @@
-#### NUEVO CODIGO ######
+#Para hacer un archivo phyloseq
 
-  ##Para hacer un archivo phyloseq
+## ejemplo
 
 otu_data <- matrix(
   c(100, 150, 200, 50, 75, 100),
@@ -27,7 +27,15 @@ library(phyloseq)
 # Convert to otu_table (phyloseq class)
 otu <- otu_table(otu_data, taxa_are_rows = TRUE)
 # Convert to tax_table (phyloseq class)
-tax <- tax_table(as.matrix(tax_data))# Create phyloseq object
+tax <- tax_table(as.matrix(tax_data)) # Create phyloseq object
 physeq <- phyloseq(otu, tax)
 # View the object
 physeq
+
+## Analisis 
+  #paquete necesario
+library(microbiome)
+
+#abundancia
+abundances_<-abundances(physeq,transform = "identity")
+abundances_
