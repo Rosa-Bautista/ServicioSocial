@@ -1,0 +1,40 @@
+#### NUEVO CODIGO ####
+
+  ## Para convertir un archivo en phyloseq
+
+# Load required libraries
+library(phyloseq)
+library(dplyr)
+library(tidyr)
+
+# Load the data
+file_path <- "~/Downloads/ERP105364_taxonomy_abundances_SSU_v4.1.tsv"  # Adjust path if needed
+data <- read.delim(file_path, header = TRUE, sep = "\t", stringsAsFactors = FALSE)
+
+# Separate taxonomy from abundance
+taxonomy_col <- data[, 1]  # First column contains taxonomy
+abundance_data <- data[, -1]  # Remaining columns contain abundance
+
+# Convert to matrix (required for phyloseq)
+otu_matrix <- as.matrix(abundance_data)
+rownames(otu_matrix) <- taxonomy_col  # Assign taxonomy as row names
+
+# Extract taxonomy levels from the first column
+taxonomy_table <- taxonomy_col %>%
+  as.data.frame() %>%
+  separate(col = ".", into = c("Kingdom", "Phylum", "Class", "Order", "Family", "Genus", "Species"), sep = ";", fill = "right") %>%
+  replace(is.na(.), "Unclassified")  # Replace missing levels with "Unclassified"
+
+# Convert taxonomy into a matrix
+rownames(taxonomy_table) <- taxonomy_col
+taxonomy_matrix <- as.matrix(taxonomy_table)
+
+# Create phyloseq objects
+otu_table <- otu_table(otu_matrix, taxa_are_rows = TRUE)
+tax_table <- tax_table(taxonomy_matrix)
+
+# Create the final phyloseq object
+physeq <- phyloseq(otu_table, tax_table)
+
+# Print summary
+physeq
