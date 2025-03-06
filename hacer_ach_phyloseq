@@ -1,0 +1,33 @@
+#### NUEVO CODIGO ######
+
+  ##Para hacer un archivo phyloseq
+
+otu_data <- matrix(
+  c(100, 150, 200, 50, 75, 100),
+  nrow = 2,
+  byrow = TRUE,
+  dimnames = list(
+    c("Firmicutes", "Bacteroidetes"), # Phylum names (rows)
+    c("S1", "S2", "S3")              # Sample names (columns)
+  )
+)
+# Taxonomic assignments (rows = phyla, columns = taxonomic ranks)
+tax_data <- data.frame(
+  Kingdom = c("Bacteria", "Bacteria"),
+  Phylum = c("Firmicutes", "Bacteroidetes"),
+  Class = NA_character_,   # Placeholder for higher ranks
+  Order = NA_character_,
+  Family = NA_character_,
+  Genus = NA_character_,
+  Species = NA_character_,
+  row.names = c("Firmicutes", "Bacteroidetes"), # Match OTU table row names
+  stringsAsFactors = FALSE
+)
+library(phyloseq)
+# Convert to otu_table (phyloseq class)
+otu <- otu_table(otu_data, taxa_are_rows = TRUE)
+# Convert to tax_table (phyloseq class)
+tax <- tax_table(as.matrix(tax_data))# Create phyloseq object
+physeq <- phyloseq(otu, tax)
+# View the object
+physeq
