@@ -2,13 +2,15 @@
 
   ## Para convertir un archivo en phyloseq
 
+## de archivo a phyloseq
+
 # Load required libraries
 library(phyloseq)
 library(dplyr)
 library(tidyr)
 
 # Load the data
-file_path <- "~/Downloads/ERP105364_taxonomy_abundances_SSU_v4.1.tsv"  # Adjust path if needed
+file_path <- "/home/servicio_social/Documents/SERVICIO_REBB/REBB_SS/documentos necesarios para phyloseq/ERP106171_taxonomy_abundances_LSU_v4.1_MGYS00002309.tsv"  # Adjust path if needed
 data <- read.delim(file_path, header = TRUE, sep = "\t", stringsAsFactors = FALSE)
 
 # Separate taxonomy from abundance
