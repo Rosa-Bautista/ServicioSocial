@@ -12,3 +12,12 @@ library(MGnifyR)
 analyses_accessions <- mgnify_analyses_from_studies
 
 metadata <- mgnify_get_analyses_metadata (mg, )
+
+
+
+
+
+
+
+https://europepmc.org/search?query=MGYS00002309 metadata
+
