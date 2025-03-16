@@ -12,7 +12,7 @@ for(i in 1: length(solonames1)){
   id_mgn[i]<-solonames[solonames1[i],1]
   num_muestra[i]<-solonames[solonames1[i],2]  
 }
-
+ id_mgn #es donde esta guardado el
 
 ##para que se guarden como character y se pueda tomar directo en la lista
 accession_list_[i]<- searchAnalysis(mgclnt, "studies",as.character([i]), usecache = TRUE) ##aqui checarlo que si funcione el as.character
